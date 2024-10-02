@@ -1,6 +1,5 @@
 const dataBase = require('../models');
 const { hash } = require('bcryptjs');
-const { where } = require('sequelize');
 const uuid = require('uuid')
 
 
