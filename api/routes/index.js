@@ -3,6 +3,7 @@ const bodyParser = require('body-parser')
 const produto = require('./produtoRoute.js');
 const auth = require('./authRouter.js');
 const role = require("./roleRouter.js");
+const permissao = require('./permissaoRouter.js');
 
 module.exports = app => {
   app.use(
@@ -10,6 +11,7 @@ module.exports = app => {
     auth,
     usuario,
     produto,
-    role
+    role,
+    permissao
   )
 }
