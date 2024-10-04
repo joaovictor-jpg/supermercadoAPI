@@ -47,22 +47,19 @@ class SegurancaService {
             }
         })
 
-        // await usuario.removeUsuario_roles(usuario.usuario_roles)
-        // await usuario.removeUsuario_permissoes(usuario.usuario_permissoes)
-
-        await usuario.addUsuario_roles(rolesCadastradas)
-        await usuario.addUsuario_permissoes(permissoesCadastradas)
+        await usuario.addUsuario_roles(rolesCadastradas);
+        await usuario.addUsuario_permissoes(permissoesCadastradas);
 
         const novoUsuario = await database.usuario.findOne({
             include: [
                 {
                     model: database.roles,
-                    as:'usuario_roles',
+                    as: 'usuario_roles',
                     attributes: ['id', 'nome', 'descricao'],
                     through: {
                         attributes: [],
                     }
-                }, 
+                },
                 {
                     model: database.permissoes,
                     as: 'usuario_permissoes',
@@ -92,11 +89,11 @@ class SegurancaService {
             where: {
                 id: dto.roleId
             }
-        })
+        });
 
         if (!role) {
             throw new Error('Role não cadastrada')
-        }
+        };
 
         const permissoesCadastradas = await database.permissoes.findAll({
             where: {
@@ -104,11 +101,12 @@ class SegurancaService {
                     [Sequelize.Op.in]: dto.permissoes
                 }
             }
-        })
-        
-        await role.removeRoles_das_permissoes(role.roles_das_permissoes)
+        });
 
-        await role.addRoles_das_permissoes(permissoesCadastradas)
+        await role.removeRoles_das_permissoes(role.roles_das_permissoes);
+
+        await role.addRoles_das_permissoes(permissoesCadastradas);
+        
 
         const novaRole = await database.roles.findOne({
             include: [
@@ -124,10 +122,10 @@ class SegurancaService {
             where: {
                 id: dto.roleId
             }
-        })
+        });
 
-        return novaRole
-    }
-}
+        return novaRole;
+    };
+};
 
-module.exports = SegurancaService
+module.exports = SegurancaService;
