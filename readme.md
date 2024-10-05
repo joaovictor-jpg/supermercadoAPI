@@ -1,6 +1,6 @@
 # supermercado
 
-<img src="imagem.png" alt="Exemplo imagem">
+<img src="image.png" alt="Exemplo imagem">
 
 > Esse projeto foi fundamentado em um supermercado fictício, onde pude aprimorar minhas habilidades em autenticação, operações CRUD, relacionamentos entre tabelas e desenvolvimento de middlewares de segurança, para validar perfis e permissões dos usuários.
 
